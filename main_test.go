@@ -118,6 +118,11 @@ func TestPembayaranBarang(t *testing.T) {
 				t.Errorf("PembayaranBarang() error = %v, wantErr %v", err, tt.wantErr)
 				return
 			}
+
+			// Menambahkan pesan cetak metode pembayaran
+			if err == nil {
+				t.Logf("Pembayaran berhasil dengan metode: %s", tt.metodePembayaran)
+			}
 		})
 	}
 }

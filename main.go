@@ -11,13 +11,19 @@ const (
 )
 
 func main() {
-	fmt.Println(HitungHargaTotal(15000, 10000, 2))
-	err := PembayaranBarang(600000, "credit", true)
+	totalHarga, err := HitungHargaTotal(15000, 10000, 2)
 	if err != nil {
 		fmt.Println("Error:", err)
-	} else {
-		fmt.Println("Pembayaran berhasil!")
+		return
 	}
+	fmt.Println("Total Harga:", totalHarga)
+
+	err = PembayaranBarang(600000, "credit", true)
+	if err != nil {
+		fmt.Println("Error:", err)
+		return
+	}
+	fmt.Println("Pembayaran berhasil!")
 }
 
 func HitungHargaTotal(hargaItem, ongkir float64, qty int) (float64, error) {

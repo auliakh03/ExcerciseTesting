@@ -17,7 +17,6 @@ func main() {
 		return
 	}
 	fmt.Println("Total Harga:", totalHarga)
-
 	err = PembayaranBarang(600000, "credit", true)
 	if err != nil {
 		fmt.Println("Error:", err)
@@ -52,6 +51,8 @@ func HitungHargaTotal(hargaItem, ongkir float64, qty int) (float64, error) {
 }
 
 func PembayaranBarang(hargaTotal float64, metodePembayaran string, dicicil bool) error {
+	fmt.Println("Metode pembayaran:", metodePembayaran) // Pencetakan tambahan
+
 	if hargaTotal <= 0 {
 		return errors.New("harga tidak bisa nol")
 	}
